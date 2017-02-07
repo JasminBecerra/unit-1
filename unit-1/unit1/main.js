@@ -106,7 +106,8 @@ function addEvents(){
         //use jquery to link the mouseover function to css style rules
         $(this).css('color', color);
     };
-    //function that will call for an alert box when you clock on the table
+    });
+        //function that will call for an alert box when you clock on the table
     function clickme(){
         //alert "hey, you clicked me" pops up in a box
         alert('Hey, you clicked me!');
@@ -114,7 +115,6 @@ function addEvents(){
     //was previously "#table", but the pound sign was not needed
     //so when we click on the table, we get the pop up/alert
     $('table').on('click', clickme);
-    });
 };
 
 //call the initialize function when the document has loaded
