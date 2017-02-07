@@ -38,7 +38,7 @@ function cities(){
     //add the "City" and "Population" columns to the header row
     $("tr").append("<th>City</th><th>Population</th>");
     
-        console.log("Hello World");
+        // console.log("Hello World");
     //loop to add a new row for each city
     for (var i = 0; i < cityPop.length; i++){
         //assign longer html strings to a variable
