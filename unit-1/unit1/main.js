@@ -117,6 +117,25 @@ function addEvents(){
     $('table').on('click', clickme);
 };
 
+
+//define AJAX function
+function jQueryAjax(){
+    //basic jQuery ajax method
+    //using ajax vs getJSON
+    $.getJSON("data/MegaCitiesMap.geojson", callback
+    );
+};
+
+//define callback function
+function callback(response, status, jqXHRobject){
+    //tasks using the data go here
+    console.log(response);
+};
+
+$(document).ready(jQueryAjax);
+
+
+
 //call the initialize function when the document has loaded
 $(document).ready(initialize);
 
