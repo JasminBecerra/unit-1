@@ -5,6 +5,8 @@
 //initialize function called when the script loads
 function initialize(){
     cities();
+    //initialize debugAjax
+    debugAjax();
 };
 
 //function to create a table with cities and their populations
@@ -118,22 +120,44 @@ function addEvents(){
 };
 
 
-//define AJAX function
+
+//jqueryAjax function
 function jQueryAjax(){
-    //basic jQuery ajax method
-    //using ajax vs getJSON
-    $.getJSON("data/MegaCitiesMap.geojson", callback
-    );
+    //define a variable to hold the data in Megacities, again, could use getJSON shorthand
+    var mydata = $.ajax("data/MegaCitiesMap.geojson", {
+        dataType: "json",
+        success: function(response){
+            mydata = response;
+
+            //checking the data
+            console.log(mydata);
+        }
+    });
+
+    //checking the data
+    console.log(mydata);
 };
 
-//define callback function
-function callback(response, status, jqXHRobject){
-    //tasks using the data go here
-    console.log(response);
+
+// debugCallback function --- stringify the data
+function debugCallback(response){
+    //append mydata (stringified) to mydiv
+    //the <br> breaks the data
+    $("#mydiv").append('<br>GeoJSON data: <br>' + JSON.stringify(response));
+}
+function debugAjax(){
+    //defining a variable to hold Megacities info
+    var mydata = $.ajax("data/MegaCitiesMap.geojson", {
+        dataType: "json",
+        //call for function debugCallback, no need for "function" 
+        //since it behaves as a variable
+        success: debugCallback
+        
+    });
 };
 
+//initializes jQuery
 $(document).ready(jQueryAjax);
-
 
 
 //call the initialize function when the document has loaded
